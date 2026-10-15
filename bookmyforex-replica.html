@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Foreign Exchange | Buy Forex Cards & Currency</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1075px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1976d2;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 12px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-menu li:hover {
+            background: #f5f5f5;
+        }
+
+        .nav-menu li.active {
+            background: #1976d2;
+            color: white;
+            border: 2px solid #1976d2;
+        }
+
+        .nav-menu i {
+            font-size: 16px;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 685px;
+            margin: 30px 0 30px 50px;
+            padding: 20px;
+            display: block;
+        }
+
+        /* Left Panel - Exchange Form */
+        .exchange-panel {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .panel-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab {
+            padding: 10px 57px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .tab.active {
+            border-bottom-color: #1976d2;
+            color: #1976d2;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #333;
+            font-size: 13px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #ff9800;
+            background: white;
+            box-shadow: 0 0 0 2px rgba(255, 152, 0, 0.1);
+        }
+
+        .currency-select {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .currency-flag {
+            width: 20px;
+            height: 14px;
+            border-radius: 2px;
+            background: #ddd;
+        }
+
+        .rate-info {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 3px solid #ff9800;
+        }
+
+        .rate-display {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .effective-rate {
+            color: #1976d2;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .zero-charges {
+            color: #4caf50;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .add-product-btn {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 12px 0;
+            transition: all 0.3s ease;
+            font-size: 13px;
+        }
+
+        .add-product-btn:hover {
+            background: #45a049;
+        }
+
+        .total-amount {
+            background: #ff9800;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            margin: 18px 0;
+        }
+
+        .total-label {
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        .total-value {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .book-order-btn {
+            width: 100%;
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .book-order-btn:hover {
+            background: #f57c00;
+        }
+
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-container {
+                max-width: 100%;
+                padding: 0 15px;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .exchange-panel {
+                padding: 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .exchange-panel {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-exchange-alt"></i> BookMyForex
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="active">
+                        Exchange Currency
+                    </li>
+                    <li>
+                        Transfer Money Abroad
+                    </li>
+                    <li>
+                       Forex Card
+                    </li>
+                    <li>
+                        International Sim Card
+                    </li>
+                    <li>
+                        Corporate Solutions
+                    </li>
+                    <li>
+                        Travel Insurance 
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Left Panel - Exchange Form -->
+        <div class="exchange-panel">
+            <div class="panel-title">
+                <i class="fas fa-exchange-alt"></i> Currency Exchange
+            </div>
+
+            <div class="tabs">
+                <div class="tab active">Buy Forex Cards & Currency</div>
+                <div class="tab">Sell Foreign Currency Notes</div>
+            </div>
+
+            <form id="exchangeForm">
+                <div class="form-group">
+                    <label for="city">
+                        <i class="fas fa-map-marker-alt"></i> Select City
+                    </label>
+                    <select class="form-control" id="city" required>
+                        <option value="">Choose your city</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="bangalore">Bangalore</option>
+                        <option value="chennai">Chennai</option>
+                        <option value="hyderabad">Hyderabad</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="fromCurrency">
+                        <i class="fas fa-flag"></i> Currency You Have
+                    </label>
+                    <select class="form-control" id="fromCurrency" required>
+                        <option value="INR" selected>
+                            🇮🇳 Indian Rupee
+                        </option>
+                        <option value="USD">🇺🇸 US Dollar</option>
+                        <option value="EUR">🇪🇺 Euro</option>
+                        <option value="GBP">🇬🇧 British Pound</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="toCurrency">
+                        <i class="fas fa-flag"></i> Currency You Want
+                    </label>
+                    <select class="form-control" id="toCurrency" required>
+                        <option value="USD" selected>🇺🇸 US Dollar</option>
+                        <option value="EUR">🇪🇺 Euro</option>
+                        <option value="GBP">🇬🇧 British Pound</option>
+                        <option value="INR">🇮🇳 Indian Rupee</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="forexCard">
+                        <i class="fas fa-credit-card"></i> Forex Card
+                    </label>
+                    <select class="form-control" id="forexCard" required>
+                        <option value="">Select Forex Card</option>
+                        <option value="visa">Visa Forex Card</option>
+                        <option value="mastercard">Mastercard Forex Card</option>
+                        <option value="amex">American Express Card</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">
+                        <i class="fas fa-coins"></i> Amount
+                    </label>
+                    <input type="number" class="form-control" id="amount" placeholder="100" value="100" required>
+                </div>
+
+                <div class="rate-info">
+                    <div class="rate-display">Rate = ₹ 86.79</div>
+                    <div class="effective-rate">
+                        Get an effective rate of ₹85.0542 
+                        <button type="button" class="know-more-btn" style="margin: 0 0 0 8px; padding: 4px 8px; font-size: 11px;">Know How</button>
+                    </div>
+                    <div class="zero-charges">
+                        <i class="fas fa-check-circle"></i> ZERO Loading Charges
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="rupeesAmount">
+                        <i class="fas fa-rupee-sign"></i> Amount in Rupees
+                    </label>
+                    <input type="number" class="form-control" id="rupeesAmount" value="8679.00" readonly>
+                </div>
+
+                <button type="button" class="add-product-btn">
+                    <i class="fas fa-plus"></i> + Add Product
+                </button>
+
+                <div class="total-amount">
+                    <div class="total-label">
+                        <i class="fas fa-shopping-cart"></i> Total Amount
+                    </div>
+                    <div class="total-value">₹8,679.00</div>
+                </div>
+
+                <button type="submit" class="book-order-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    BOOK THIS ORDER
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+
+
+    </div>
+
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Navigation menu functionality
+        document.querySelectorAll('.nav-menu li').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.nav-menu li').forEach(li => li.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Currency conversion calculation
+        document.getElementById('amount').addEventListener('input', function() {
+            const amount = parseFloat(this.value) || 0;
+            const rate = 86.79;
+            const convertedAmount = (amount * rate).toFixed(2);
+            document.getElementById('rupeesAmount').value = convertedAmount;
+            document.querySelector('.total-value').textContent = `₹${parseFloat(convertedAmount).toLocaleString('en-IN')}`;
+        });
+
+        // Form submission
+        document.getElementById('exchangeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Order booked successfully! We will contact you soon.');
+        });
+
+        // Action buttons functionality
+        document.querySelectorAll('.action-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const action = this.querySelector('span').textContent.trim();
+                alert(`${action} request submitted successfully!`);
+            });
+        });
+
+        // Know more button
+        document.querySelector('.know-more-btn').addEventListener('click', function() {
+            alert('Effective rate calculation includes all fees and charges. Our rates are transparent with no hidden costs.');
+        });
+
+        // Chat button
+        document.querySelector('.chat-btn').addEventListener('click', function() {
+            alert('Opening WhatsApp chat...');
+        });
+
+        // Add product button
+        document.querySelector('.add-product-btn').addEventListener('click', function() {
+            alert('Product added to cart!');
+        });
+    </script>
+</body>
+</html> 

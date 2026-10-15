@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Exchange</title>
+  <link rel="stylesheet" href="/public/style.css">
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; }
+    .container { max-width: 400px; margin: 40px auto; background: #fff; padding: 24px; border-radius: 8px; box-shadow: 0 2px 8px #0001; }
+    h1 { text-align: center; }
+    form { display: flex; flex-direction: column; gap: 12px; }
+    label { font-weight: bold; }
+    select, input[type="number"] { padding: 6px; border-radius: 4px; border: 1px solid #ccc; }
+    button { padding: 8px; border: none; background: #007bff; color: #fff; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    .result, .error { margin-top: 18px; text-align: center; }
+    .error { color: #c00; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Currency Exchange</h1>
+    <form action="/convert" method="POST">
+      <label for="from">From:</label>
+      <select name="from" id="from">
+        <% for (let code in currencies) { %>
+          <option value="<%= code %>" <%= from === code ? 'selected' : '' %>><%= code %> - <%= currencies[code] %></option>
+        <% } %>
+      </select>
+
+      <label for="to">To:</label>
+      <select name="to" id="to">
+        <% for (let code in currencies) { %>
+          <option value="<%= code %>" <%= to === code ? 'selected' : '' %>><%= code %> - <%= currencies[code] %></option>
+        <% } %>
+      </select>
+
+      <label for="amount">Amount:</label>
+      <input type="number" step="any" min="0" name="amount" id="amount" value="<%= amount %>" required>
+
+      <button type="submit">Convert</button>
+    </form>
+
+    <% if (error) { %>
+      <div class="error"><%= error %></div>
+    <% } %>
+
+    <% if (rate && result) { %>
+      <div class="result">
+        <p>Exchange Rate: <strong>1 <%= from %> = <%= rate %> <%= to %></strong></p>
+        <p>Converted Amount: <strong><%= result %> <%= to %></strong></p>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html>
